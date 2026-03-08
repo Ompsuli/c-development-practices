@@ -17,7 +17,10 @@ This repository contains small programs and exercises created while learning and
 ## Project Structure
 
 Projects are shared by difficulty. Each difficulty contains concept or exercise. Usually each file or folder focuses one task at the time.
-Example: ./<difficult>/<concept>/<file>
+Example format: 
+```
+./<difficult>/<concept>/<file>
+```
 
 Example:
 /beginner/hello_world/hello_world.c
