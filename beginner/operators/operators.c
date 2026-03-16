@@ -44,11 +44,14 @@ int main() {
   char a = 'O';
   char name[] = "Ompsuli";
   float pi = 3.14;
+  int *pInteger;
 
   printf("Size of int: %zu\n", sizeof(i));
   printf("Size of char: %zu\n", sizeof(a));
   printf("Size of char array: %zu\n", sizeof(name));
   printf("Size of float: %zu\n", sizeof(pi));
-
+  printf("Size of pointer address: %zu\n", sizeof(pInteger));
+  printf("Size of pointer variable: %zu\n", sizeof(*pInteger));
+  
   return 0;
 }
