@@ -22,6 +22,8 @@ int mallocArray(int count) {
   int i;
   int *pArr = malloc(sizeof *pArr * count);
 
+  printf("\nArray malloc starts here\n");
+
   for (i = 0 ; i < count ; i++) {
     pArr[i] = i;
   }
@@ -41,9 +43,59 @@ int mallocArray(int count) {
   return 0;
 }
 
+int reAllocate(int count) {
+  int i, *pNew;
+  int *p = malloc(sizeof *p * count);
+  int reCount = count;
+  reCount *= 2;
+
+  printf("\nReallocating starts here\n");
+
+  for (i = 0 ; i < count ; i++) {
+    p[i] = i;
+  }
+
+  if (p == NULL) {
+    printf("Error allocating pointer p\n");
+    return 1;
+  }
+
+  for (i = 0 ; i < count ; i++){
+    printf("p[%d]: %d\n", i, p[i]);
+  }
+
+///////////////////////////////////
+  
+  pNew = realloc(p, sizeof *p * reCount);
+
+  if (pNew == NULL) {
+    printf("Error reallocating pointer p\n");
+    return 1;
+  }
+
+  p = pNew;
+
+  for (i = 0 ; i < reCount ; i++) {
+    p[i] = i;
+  }
+  
+  printf("Reallocated array:\n");
+
+  for (i = 0 ; i < reCount ; i++){
+    printf("p[%d]: %d\n", i, p[i]);
+  }
+
+  free(p);
+
+  return 0;
+}
+
 int main() {
+  int i = 5;
+
   mallocBasic();
-  mallocArray(5);
+  mallocArray(i);
+  reAllocate(i);
 
 
   return 0;
